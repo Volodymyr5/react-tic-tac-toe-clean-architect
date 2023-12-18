@@ -1,26 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {Repository} from "./Data/Repository";
+import {TicTacToeView} from "./Presenter";
+import {OnMemoryHistoryDataSource} from "./Data/DataSource";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const dataSource = new OnMemoryHistoryDataSource();
+const repository = new Repository(dataSource);
+
+export function App() {
+    return <TicTacToeView repository={repository}/>;
 }
-
-export default App;

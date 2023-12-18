@@ -1,0 +1,1 @@
+export {useTicTacToeModelController} from './TicTacToeModelController';
